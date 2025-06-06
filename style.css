@@ -1,0 +1,106 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background: black;
+  font-family: monospace;
+  color: white;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+      align-items: center;
+    }
+    .controls label {
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+.scroll-text-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 99;
+  background: #000000;
+}
+
+.scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+  color: white;
+  font-size: 30px;
+  animation: scroll-left 15s linear infinite;
+  padding: 5px 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+#scoreBoard {
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+canvas {
+  border: 1px solid white;
+}
+
+#modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+}
+
+#modal button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@keyframes shake-strong {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  15% { transform: translate(-10px, 5px) rotate(-2deg); }
+  30% { transform: translate(8px, -8px) rotate(2deg); }
+  45% { transform: translate(-6px, 6px) rotate(-1deg); }
+  60% { transform: translate(6px, -4px) rotate(1deg); }
+  75% { transform: translate(-4px, 4px) rotate(0deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+.shake-strong {
+  animation: shake-strong 0.4s ease;
+}
+.flash {
+  animation: flash-red 0.3s ease;
+}
+
+@keyframes flash-red {
+  0%   { background-color: black; }
+  50%  { background-color: darkred; }
+  100% { background-color: black; }
+}
